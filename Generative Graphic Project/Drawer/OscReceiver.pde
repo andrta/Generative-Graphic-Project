@@ -38,8 +38,8 @@ class OscReceiver {
       drawer.handleZoom(leftHandPosition, rightHandPosition, maxDistanceBetweenHandsJoints);
       logZoom(message.typetag());
     } else if (message.checkAddrPattern(ROTATE_ADDRESS_PATTERN)) {
-      final int x = message.get(0).intValue();
-      final int y = message.get(1).intValue();
+      final int x = (int) message.get(0).floatValue();
+      final int y = (int) message.get(1).floatValue();
       drawer.activateRotateAction(x, y);
       logRotate(message.typetag(), x, y);
     }
