@@ -33,5 +33,7 @@ void draw() {
   background(0);
   image(handGesturesRecogniser.getDepthMaskImage(), 0, 0, width, height);
   final HandGestureModel handGestureModel = handGesturesRecogniser.getHandsGestures();
-  oscSender.send(new OscMessageModelMapper().map(handGestureModel));
+  if(handGestureModel != null) {
+    oscSender.send(new OscMessageModelMapper().map(handGestureModel));
+  }
 }
